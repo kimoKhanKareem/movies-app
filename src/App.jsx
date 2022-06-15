@@ -102,10 +102,9 @@ form{
   gridTemplateColumns: 'repeat(3, 1fr)',
   transform: 'translate(0px, 0px)'
 })}
-  /* responsive 768px */
+  /* responsive 425px */
   ${Mobil425({
   gridTemplateColumns: 'repeat(2, 1fr)',
-  // transform: 'translate(0px, 0px)'
 })}
 
 .bordimage{
