@@ -3,7 +3,7 @@ import React from 'react'
 const det = () => {
   return (
     <div className={"column"}>
-    {film.map((item, index) => {
+    {/* {film.map((item, index) => {
       return (
         <div className={"rap"} key={index}>
           <div className={"bordimage"}>
@@ -20,7 +20,7 @@ const det = () => {
           </h4>
         </div>
       )
-    })}
+    })} */}
   </div>
 
   )

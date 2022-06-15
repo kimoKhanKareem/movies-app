@@ -32,7 +32,7 @@ function App() {
   return (
     <StyledDiv className="App">
       <form onSubmit={onSubmit}>
-        <input type={"text"} ref={inputRef}/>
+        <input type={"text"} ref={inputRef} placeholder="Enter The Name Of The Movie" style={{paddingLeft: '20px'}}/>
         <button type="submit">Submuit</button>
       </form>
       <div className={"column"}>
@@ -40,9 +40,9 @@ function App() {
           return (
             <div className={"rap"} key={index}>
               <div className={"bordimage"}>
-              {/* <Link to="https://yts.mx/movies/sex-appeal-2022"> */}
+              <a href={item.url}>
                 <img src={item.medium_cover_image} style={{width: '250px'}} alt="..." />
-              {/* </Link> */}
+              </a>
               </div>
               <h3>
                 {item.title_long}
@@ -92,6 +92,15 @@ text-align: center;
   height: 350px;
   overflow: hidden;
 }
+}
+@media (max-width: 768px ){
+  .column{
+  display: flex;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  }
 }
 `
 
