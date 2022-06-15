@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import "./App.css";
 // import { Link } from 'react-router-dom';
+import { IpadMini, Disklab, NestHub, Mobil425 } from "./responsive"
 
 function App() {
   const [end, setEnd] = useState("");
@@ -32,7 +33,7 @@ function App() {
   return (
     <StyledDiv className="App">
       <form onSubmit={onSubmit}>
-        <input type={"text"} ref={inputRef} placeholder="Enter The Name Of The Movie" style={{paddingLeft: '20px'}}/>
+        <input type={"text"} ref={inputRef} placeholder="Enter The Name Of The Movie" style={{ paddingLeft: '20px' }} />
         <button type="submit">Submuit</button>
       </form>
       <div className={"column"}>
@@ -40,9 +41,9 @@ function App() {
           return (
             <div className={"rap"} key={index}>
               <div className={"bordimage"}>
-              <a href={item.url}>
-                <img src={item.medium_cover_image} style={{width: '250px'}} alt="..." />
-              </a>
+                <a href={item.url}>
+                  <img src={item.medium_cover_image} style={{ width: '250px' }} alt="..." />
+                </a>
               </div>
               <h3>
                 {item.title_long}
@@ -62,9 +63,11 @@ function App() {
 const StyledDiv = styled.section`
 form{
   margin-bottom: 5%;
+  width: 100%;
+  padding: 5% 5%;
+  text-align: center;
   input{
     width: 100%;
-    justify-content: center;
     height: 40px;
   }
   input{
@@ -78,28 +81,37 @@ form{
     font-size: 1.5rem;
   }
 }
-width: 100%;
-padding: 5% 5%;
-text-align: center;
 .column{
-  display: flex;
-  justify-content: center;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 30px;
+  transform: translate(20px, 10px);
+  /* responsive 1440px */
+  ${Disklab({
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    transform: 'translate(10px, 10px)'
+  })}
+  /* responsive 1024px */
+  ${NestHub({
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+    transform: 'translate(40px, 10px)'
+  })}
+  /* responsive 768px */
+  ${IpadMini({
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  transform: 'translate(0px, 0px)'
+})}
+  /* responsive 768px */
+  ${Mobil425({
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  // transform: 'translate(0px, 0px)'
+})}
+
 .bordimage{
   width: 250px;
   height: 350px;
   overflow: hidden;
-}
-}
-@media (max-width: 768px ){
-  .column{
-  display: flex;
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 15px;
   }
 }
 `
